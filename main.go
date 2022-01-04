@@ -41,13 +41,13 @@ func (g *Game) Draw(screen *ebiten.Image) {
 	}
 	// SPACESHIP UPDATE
 	x, y, ok := CheckCursorPosition(screen.Bounds(), spaceship, 0, (spaceship.image.Bounds().Max.X / 10), 0, spaceship.image.Bounds().Max.Y/10)
-	ebitenutil.DebugPrint(screen, fmt.Sprint(x, y, ebiten.CurrentFPS(), spaceship.x, spaceship.y))
+	ebitenutil.DebugPrint(screen, fmt.Sprint(x, y, ebiten.CurrentFPS()))
 	if ok {
 		rx, ry := spaceship.TranslateTo(float64(x), float64(y))
 		spaceship.options.GeoM.Translate(rx, ry)
 		spaceship.SetCoord(float64(x), float64(y))
 	}
-	ebitenutil.DebugPrintAt(screen, "Kak tam tvoy virus?\nExit -> ESC", 500, 500)
+	ebitenutil.DebugPrintAt(screen, "SPACEGO v0.1\nExit -> ESC", 500, 500)
 	screen.DrawImage(spaceship.image, spaceship.options)
 	// END
 }
